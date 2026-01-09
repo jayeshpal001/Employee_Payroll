@@ -5,11 +5,11 @@ import {
   Banknote,
   FileText,
   Loader2,
-  Briefcase,
-  Calendar,
+
+
   Building2,
   Hash,
-  Download
+
 } from "lucide-react";
 
 import {
@@ -42,7 +42,7 @@ export const SalaryBillUI = () => {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
   const [isPfEnabled, setApplyPF] = useState(false);
-  const [recordId, setRecordId] = useState<number | null>(null);
+  // const [recordId, setRecordId] = useState<number | null>(null);
 
   /* ================= PHASE 2 STATES ================= */
   const [employeeId, setEmployeeId] = useState("");
@@ -92,7 +92,7 @@ export const SalaryBillUI = () => {
       }).unwrap();
 
       console.log("🔥 Phase-1 response:", res);
-      setRecordId(res.id);
+      // setRecordId(res.id);
       
       // UX: Auto-switch to generate tab and pre-fill if possible (logic depends on API response)
       setActiveTab("generate"); 
