@@ -283,7 +283,7 @@ export const SalaryBillUI = () => {
                 <div className="flex justify-between items-start mb-8 border-b border-zinc-200 pb-6">
                   <div>
                     <h2 className="text-xl font-bold uppercase tracking-widest text-zinc-900 flex items-center gap-2">
-                      <Building2 size={20} /> Company Inc.
+                      <Building2 size={20} /> Codes For Tomorrow.
                     </h2>
                     <p className="text-xs text-zinc-500 mt-1 uppercase tracking-wide">
                       Payroll Statement
