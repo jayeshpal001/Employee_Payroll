@@ -1,5 +1,5 @@
 import React from "react";
-import {type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
 interface LabelProps {
   children: React.ReactNode;
@@ -7,8 +7,8 @@ interface LabelProps {
 }
 
 export const Label = ({ children, icon: Icon }: LabelProps) => (
-  <label className="flex items-center gap-2 text-sm font-semibold text-gray-600 mb-1.5 ml-1">
-    {Icon && <Icon size={16} className="text-indigo-500" />}
+  <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2 ml-1">
+    {Icon && <Icon size={14} className="text-zinc-400" />}
     {children}
   </label>
 );
