@@ -1,0 +1,5 @@
+[
+  { "id": "DS1", "name": "Less than 5 hours" },
+  { "id": "DS2", "name": "5 to 6.5 hours" },
+  { "id": "DS3", "name": "More than 6.5 hours" }
+]
