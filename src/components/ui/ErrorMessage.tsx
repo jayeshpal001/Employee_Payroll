@@ -1,9 +1,8 @@
-
-import { AlertCircle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 export const ErrorMessage = ({ message }: { message: string }) => (
-  <div className="flex items-center gap-2 p-3 text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg animate-in fade-in slide-in-from-top-2">
-    <AlertCircle size={16} />
-    {message}
+  <div className="flex items-start gap-3 p-4 text-sm font-medium text-red-600 bg-red-50/50 border border-red-100 rounded-xl animate-in fade-in slide-in-from-top-2">
+    <AlertTriangle size={18} className="shrink-0 mt-0.5" />
+    <span>{message}</span>
   </div>
 );

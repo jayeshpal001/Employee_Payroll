@@ -1,1 +1,38 @@
-@import "tailwindcss"
+@import "tailwindcss"; 
+
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #e4e4e7; /* zinc-200 */
+  border-radius: 20px;
+}
+
+/* Hover Effect */
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: #a1a1aa; /* zinc-400 */
+}
+
+@media print {
+  /* 1. Background graphics aur colors force karein */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 2. Page Margins remove karein */
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+
+  /* NOTE: "visibility: hidden" wali lines hata dijiye. 
+     React-to-print khud handle karega ki kya dikhana hai. */
+}

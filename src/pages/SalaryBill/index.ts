@@ -1,0 +1,1 @@
+export { SalaryBillPage } from "./SalaryBillPage";
