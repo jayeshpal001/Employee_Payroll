@@ -94,7 +94,7 @@ export const salaryApi = createApi({
   reducerPath: "salaryApi",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000",
+    baseUrl: "https://employee-payroll-backend-1.onrender.com",
     headers: {
       "Content-Type": "application/json",
     },
