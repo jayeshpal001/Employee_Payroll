@@ -28,17 +28,8 @@ export interface CreateSalaryRecordRequest {
   isPfEnabled: boolean;
 }
 
-/**
- * Backend response example:
- * {
- *   id: 25,
- *   employeeName: "jayesh",
- *   salary: 200000,
- *   isPfEnabled: false
- * }
- */
 export interface CreateSalaryRecordResponse {
-  id: number; // ✅ ACTUAL KEY USED
+  id: number;
   employeeName?: string;
   salary?: number;
   isPfEnabled?: boolean;
@@ -87,16 +78,6 @@ export interface SalaryStructure {
   netPay: number;
 }
 
-/**
- * REAL backend generate response:
- * {
- *   attendance: {...},
- *   dataset: {...},
- *   employee: {...},
- *   salaryCalculation: {...},
- *   salaryStructure: {...}
- * }
- */
 export interface GenerateBillResponse {
   attendance: Attendance;
   dataset: Dataset;
@@ -119,6 +100,9 @@ export const salaryApi = createApi({
     },
   }),
 
+  // 1️⃣ Add Tag Types here
+  tagTypes: ["Employees"], 
+
   endpoints: (builder) => ({
     /* -------- PHASE 1: CREATE SALARY RECORD -------- */
     createSalaryRecord: builder.mutation<
@@ -130,11 +114,15 @@ export const salaryApi = createApi({
         method: "POST",
         body,
       }),
+      // 3️⃣ When this runs successfully, mark 'Employees' data as stale/dirty
+      invalidatesTags: ["Employees"], 
     }),
 
     /* -------- FETCH EMPLOYEES -------- */
     getEmployees: builder.query<Employee[], void>({
       query: () => "/employees",
+      // 2️⃣ Tell Redux this data belongs to the 'Employees' tag
+      providesTags: ["Employees"], 
     }),
 
     /* -------- FETCH DATASETS -------- */

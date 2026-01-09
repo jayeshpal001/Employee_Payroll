@@ -5,8 +5,6 @@ import {
   Banknote,
   FileText,
   Loader2,
-
-
   Building2,
   Hash,
 
@@ -91,14 +89,14 @@ export const SalaryBillUI = () => {
         isPfEnabled: applyPFFinal,
       }).unwrap();
 
-      console.log("🔥 Phase-1 response:", res);
+      console.log("Phase-1 response:", res);
       // setRecordId(res.id);
       
       // UX: Auto-switch to generate tab and pre-fill if possible (logic depends on API response)
       setActiveTab("generate"); 
       
     } catch (err) {
-      console.error("❌ Phase-1 Error:", err);
+      console.error("Phase-1 Error:", err);
     }
   };
 
@@ -111,7 +109,7 @@ export const SalaryBillUI = () => {
             employeeId: Number(employeeId),
             datasetId: Number(datasetId),
         }).unwrap();
-        console.log("🔥 Bill Generated:", res);
+        console.log("Bill Generated:", res);
     } catch (error) {
         console.error("Error generating bill", error);
     }
@@ -119,7 +117,7 @@ export const SalaryBillUI = () => {
 
   /* ================= DEBUG ================= */
   useEffect(() => {
-    if (billData) console.log("🟢 billData:", billData);
+    if (billData) console.log("billData:", billData);
   }, [billData]);
 
   /* ================= DERIVED DATA ================= */
@@ -182,7 +180,6 @@ export const SalaryBillUI = () => {
                   // Assuming Input accepts className for B&W customization
                   className="focus:ring-zinc-500"
                 />
-
                 <Input
                   label="Annual / Monthly CTC"
                   type="number"
@@ -267,7 +264,7 @@ export const SalaryBillUI = () => {
         {/* ================= RIGHT PANEL: REALISTIC BILL ================= */}
         <div className="flex flex-col h-full">
           {billLoading && (
-            <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-zinc-200 min-h-[500px]">
+            <div className="flex-1 flex flex-col items-center justify-center bg-white rounded-xl shadow-lg border border-zinc-200 min-h-125">
               <Loader2 className="animate-spin mb-4 text-zinc-800" size={32} />
               <p className="text-zinc-500 text-sm font-medium">Processing Payroll...</p>
             </div>
