@@ -19,7 +19,7 @@ export const SalaryBillPage = () => {
   const componentRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
-    contentRef: componentRef, // This is the new standard for v7+
+    contentRef: componentRef,
     documentTitle: `Salary_Slip_${s.employeeId || "Draft"}`,
     onAfterPrint: () => console.log("Printed successfully"),
   });
@@ -54,7 +54,7 @@ export const SalaryBillPage = () => {
     s.employeesQuery.error || s.datasetsQuery.error || s.createMeta.error;
 
   return (
-    <div className="min-h-screen bg-zinc-50 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] bg-size-[20px_20px] flex items-center justify-center p-4 lg:p-8 font-sans text-zinc-900 overflow-hidden">
+    <div className="min-h-screen bg-zinc-50 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:20px_20px] flex items-center justify-center p-4 lg:p-8 font-sans text-zinc-900 overflow-hidden">
       {/* Toast Notification Layer */}
       <Toast
         message={toast?.msg || null}
@@ -107,11 +107,11 @@ export const SalaryBillPage = () => {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
                   >
+                    {/* ✅ UPDATED: Removed showPFCheckbox prop */}
                     <CreateSalaryForm
                       name={s.name}
                       salary={s.salary}
                       isPfEnabled={s.isPfEnabled}
-                      showPFCheckbox={s.showPFCheckbox}
                       loading={s.createMeta.isLoading}
                       setName={s.setName}
                       setSalary={s.setSalary}

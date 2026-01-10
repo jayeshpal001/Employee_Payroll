@@ -21,28 +21,18 @@ export const useSalaryBill = () => {
   const employeesQuery = useGetEmployeesQuery();
   const datasetsQuery = useGetDatasetsQuery();
 
-  const [createSalaryRecord, createMeta] =
-    useCreateSalaryRecordMutation();
-
-  const [generateBill, billMeta] =
-    useGenerateBillMutation();
-
-  const showPFCheckbox = salary !== "" && Number(salary) < 15000;
+  const [createSalaryRecord, createMeta] = useCreateSalaryRecordMutation();
+  const [generateBill, billMeta] = useGenerateBillMutation();
 
   const handleCreateRecord = async () => {
     const numericSalary = Number(salary);
 
-    const applyPFFinal =
-      numericSalary < 12000
-        ? isPfEnabled
-        : numericSalary <= 30000
-        ? true
-        : false;
-
+    // LOGIC UPDATE: We now trust 'isPfEnabled' directly because 
+    // the CreateSalaryForm handles the validation/auto-checking logic.
     await createSalaryRecord({
       name,
       salary: numericSalary,
-      isPfEnabled: applyPFFinal,
+      isPfEnabled: isPfEnabled,
     }).unwrap();
 
     setActiveTab("generate");
@@ -79,8 +69,7 @@ export const useSalaryBill = () => {
     setEmployeeId,
     setDatasetId,
 
-    showPFCheckbox,
-
+    // Removed 'showPFCheckbox' as logic is now handled in the component
     employeesQuery,
     datasetsQuery,
     createMeta,

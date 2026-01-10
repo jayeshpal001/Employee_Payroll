@@ -70,7 +70,7 @@ export const SalaryBillUI = () => {
   ] = useGenerateBillMutation();
 
   /* ================= LOGIC ================= */
-  const showPFCheckbox = salary !== "" && Number(salary) < 15000;
+  const showPFCheckbox = salary !== "" && Number(salary) < 12000;
 
   /* ---------- PHASE 1 ACTION ---------- */
   const handleCreateRecord = async () => {
