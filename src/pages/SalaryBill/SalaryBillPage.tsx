@@ -19,7 +19,7 @@ export const SalaryBillPage = () => {
   const componentRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = useReactToPrint({
-    contentRef: componentRef, // This is the new standard for v7+
+    contentRef: componentRef,
     documentTitle: `Salary_Slip_${s.employeeId || "Draft"}`,
     onAfterPrint: () => console.log("Printed successfully"),
   });
@@ -107,11 +107,11 @@ export const SalaryBillPage = () => {
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
                   >
+                    {/*  UPDATED: Removed showPFCheckbox prop */}
                     <CreateSalaryForm
                       name={s.name}
                       salary={s.salary}
                       isPfEnabled={s.isPfEnabled}
-                      showPFCheckbox={s.showPFCheckbox}
                       loading={s.createMeta.isLoading}
                       setName={s.setName}
                       setSalary={s.setSalary}
