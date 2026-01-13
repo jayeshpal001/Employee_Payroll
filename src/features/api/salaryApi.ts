@@ -13,8 +13,11 @@ import type {
 /* =======================
    API DEFINITION
 ======================= */
+// const backendApi = import.meta.env.BACKEND_URL
+// console.log(import.meta.env);
 
 export const salaryApi = createApi({
+  
   reducerPath: "salaryApi",
 
   baseQuery: fetchBaseQuery({
